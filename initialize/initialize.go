@@ -22,7 +22,7 @@ func LinearNumber(start int, end int) []int{
   return list
 }
 
-func InsertArray(start int, end int, ary []string, len int) []string{
+func LinearArray(start int, end int, ary []string, len int) []string{
   var diff int = start - end
   var length int
   if diff >= 0 {
@@ -45,10 +45,10 @@ func InsertArray(start int, end int, ary []string, len int) []string{
 
 func LinearUpperCapital(start int, end int) []string{
   tmp := []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
-  return InsertArray(start, end, tmp, 26)
+  return LinearArray(start, end, tmp, 26)
 }
 
 func LinearLowerCapital(start int, end int) []string{
   tmp := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
-  return InsertArray(start, end, tmp, 26)
+  return LinearArray(start, end, tmp, 26)
 }
