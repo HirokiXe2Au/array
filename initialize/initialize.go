@@ -38,7 +38,6 @@ func LinearArray(start int, end int, ary []string, len int) []string{
       num = (start + i) % len
     }else{
       num = (start - i) % len
-
     }
 
     if num < 0 {
