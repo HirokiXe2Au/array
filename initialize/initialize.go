@@ -11,7 +11,7 @@ func LinearNumber(start int, end int) []int{
 
   list := make([]int, length)
   for i := 0; i < length ; i++ {
-    if end >= 0 {
+    if end >= start {
       // 正の場合
       list[i] = start + i 
     }else{
@@ -34,11 +34,17 @@ func LinearArray(start int, end int, ary []string, len int) []string{
   list := make([]string, length)
   var num int
   for i := 0; i < length ; i++ {
+    if end >= start {
+      num = (start + i) % len
+    }else{
       num = (start - i) % len
-      if num < 0 {
-        num = -num
-      }
-      list[i] = ary[num]
+
+    }
+
+    if num < 0 {
+      num = -num
+    }
+    list[i] = ary[num]
   }
   return list
 }
