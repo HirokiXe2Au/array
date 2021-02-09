@@ -1,13 +1,13 @@
 # Array Package
 ## initialize
 ### Create linear numbers
-Create array to numbers in numerical order.
+Create array to numbers in first argument to second argument order.
 ```
 // Get array to []int{10 9 8 7 6 5 4 3 2 1 0 -1 -2 -3 -4 -5 -6 -7 -8 -9}
 numbers := LinearNumber(10, -10)
 ```
 ### Create linear strings
-Create array to strings in abc order.
+Create array to strings in first argument to second argument order.
 ```
 // Get array to []string{"K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}
 strs := LinearUpperCapital(10, -10)
