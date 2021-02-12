@@ -1,58 +1,53 @@
 package initialize
 
-func LinearNumber(start int, end int) []int{
-  abs := func(x int) int{
-    if x < 0 {
-      x = -x
-    }
-    return x
+const m = 32 << (^uint(0) >> 63) - 1
+func abs(x int) int{
+  if x < 0 {
+    x = -x
   }
-
-  var length int = abs(start - end)
-  list := make([]int, length)
-  if end > start {
-    for i := 0; i < length ; i++ {
-      list[i] = start + i 
-    }
-  }else{
-    for i := 0; i < length ; i++ {
-      list[i] = start - i
-    }
-  }
-  return list
+  return (x ^ (x >> m)) - (x >> m)
 }
 
-func LinearArray(start int, end int, ary []string) []string{
-  var convert func(n int, ary []string) string
-  convert = func(n int, ary []string) string{
-    var str string
-    i := n % len(ary)
-    r := n / len(ary)
-    if r > 0{
-      str = convert(r-1, ary)
-    }
-    return  str + ary[i]
-  }
-
-  abs := func(x int) int{
-    if x < 0 {
-      x = -x
-    }
-    return x
-  }
-
+func LinearNumber(start int, end int) []int{
   var length int = abs(start - end)
-  strs := make([]string, length)
+  ary := make([]int, length)
   if end > start {
     for i := 0; i < length ; i++ {
-      strs[i] = convert(abs(start + i), ary)
+      ary[i] = start + i 
     }
   }else{
     for i := 0; i < length ; i++ {
-      strs[i] = convert(abs(start - i), ary)
+      ary[i] = start - i
     }
   }
-  return strs
+  return ary
+}
+
+func LinearArray(start int, end int, strs []string) []string{
+  var convert func(n int) string
+  var l int = len(strs)
+  convert = func(n int) string{
+    var str string
+    i := n % l
+    r := n / l
+    if r > 0{
+      str = convert(r-1)
+    }
+    return  str + strs[i]
+  }
+
+  var length int = abs(start - end)
+  ary := make([]string, length)
+  if end > start {
+    for i := 0; i < length ; i++ {
+      ary[i] = convert(abs(start + i))
+    }
+  }else{
+    for i := 0; i < length ; i++ {
+      ary[i] = convert(abs(start - i))
+    }
+  }
+  return ary
 }
 
 func LinearUpperCapital(start int, end int) []string{
