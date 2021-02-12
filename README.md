@@ -13,7 +13,7 @@ Create array to strings in first argument to second argument order.
 strs := LinearUpperCapital(10, -10)
 
 // Get array to []string{"x", "y", "z", "aa", "ab", "ac", "ad"}
-strs := LinearUpperCapital(23, 30)
+strs := LinearLowerCapital(23, 30)
 ```
 ## search
 ### linear search
