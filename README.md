@@ -12,8 +12,8 @@ Create array to strings in first argument to second argument order.
 // Get array to []string{"K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}
 strs := LinearUpperCapital(10, -10)
 
-// Get array to []string{"k", "j", "i", "h", "g", "f", "e", "d", "c", "b", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}
-strs := LinearUpperCapital(10, -10)
+// Get array to []string{"x", "y", "z", "aa", "ab", "ac", "ad"}
+strs := LinearUpperCapital(23, 30)
 ```
 ## search
 ### linear search
