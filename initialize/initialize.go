@@ -1,66 +1,58 @@
 package initialize
 
 func LinearNumber(start int, end int) []int{
-  var diff int = start - end
-  var length int
-  if diff >= 0 {
-    length = diff
-  }else{
-    length = -diff
+  abs := func(x int) int{
+    if x < 0 {
+      x = -x
+    }
+    return x
   }
 
+  var length int = abs(start - end)
   list := make([]int, length)
-  for i := 0; i < length ; i++ {
-    if end >= start {
-      // 正の場合
+  if end > start {
+    for i := 0; i < length ; i++ {
       list[i] = start + i 
-    }else{
-      // 負の場合
+    }
+  }else{
+    for i := 0; i < length ; i++ {
       list[i] = start - i
     }
   }
   return list
 }
 
-func convert(n int, ary []string) string{
-  var str string
-  i := n % len(ary)
-  r := n / len(ary)
-  if r > 0{
-    str = convert(r-1, ary)
-  }
-  return  str + ary[i]
-}
-
 func LinearArray(start int, end int, ary []string,) []string{
-  var diff int = start - end
-  var length int
-  if diff >= 0 {
-    length = diff
-  }else{
-    length = -diff
+  var convert func(n int, ary []string) string
+  convert = func(n int, ary []string) string{
+    var str string
+    i := n % len(ary)
+    r := n / len(ary)
+    if r > 0{
+      str = convert(r-1, ary)
+    }
+    return  str + ary[i]
   }
 
-  list := make([]string, length)
-  var num int
-  if end >= start {
+  abs := func(x int) int{
+    if x < 0 {
+      x = -x
+    }
+    return x
+  }
+
+  var length int = abs(start - end)
+  strs := make([]string, length)
+  if end > start {
     for i := 0; i < length ; i++ {
-      num = start + i
-      if num < 0 {
-        num = -num
-      }
-      list[i] = convert(num, ary)
+      strs[i] = convert(abs(start + i), ary)
     }
   }else{
     for i := 0; i < length ; i++ {
-      num = start - i
-      if num < 0 {
-        num = -num
-      }
-      list[i] = convert(num, ary)
+      strs[i] = convert(abs(start - i), ary)
     }
   }
-  return list
+  return strs
 }
 
 func LinearUpperCapital(start int, end int) []string{
