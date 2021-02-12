@@ -22,7 +22,8 @@ func LinearNumber(start int, end int) []int{
   return list
 }
 
-func convert(n int, ary []string){
+func convert(n int, ary []string) string{
+  var str string
   i := len(ary) % n
   r := len(ary) / n
   if r > 0{
