@@ -22,6 +22,15 @@ func LinearNumber(start int, end int) []int{
   return list
 }
 
+func convert(n int, ary []string){
+  i := len(ary) % n
+  r := len(ary) / n
+  if r > 0{
+    str = convert(r, ary)
+  }
+  return  str + ary[i]
+}
+
 func LinearArray(start int, end int, ary []string, len int) []string{
   var diff int = start - end
   var length int
@@ -33,17 +42,22 @@ func LinearArray(start int, end int, ary []string, len int) []string{
 
   list := make([]string, length)
   var num int
-  for i := 0; i < length ; i++ {
-    if end >= start {
+  if end >= start {
+    for i := 0; i < length ; i++ {
       num = (start + i) % len
-    }else{
+      if num < 0 {
+        num = -num
+      }
+      list[i] = convert(num, ary)
+    }
+  }else{
+    for i := 0; i < length ; i++ {
       num = (start - i) % len
+      if num < 0 {
+        num = -num
+      }
+      list[i] = convert(num, ary)
     }
-
-    if num < 0 {
-      num = -num
-    }
-    list[i] = ary[num]
   }
   return list
 }
