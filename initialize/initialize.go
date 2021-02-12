@@ -22,7 +22,7 @@ func LinearNumber(start int, end int) []int{
   return list
 }
 
-func LinearArray(start int, end int, ary []string,) []string{
+func LinearArray(start int, end int, ary []string) []string{
   var convert func(n int, ary []string) string
   convert = func(n int, ary []string) string{
     var str string
