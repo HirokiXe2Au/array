@@ -2,9 +2,6 @@ package initialize
 
 const m = 32 << (^uint(0) >> 63) - 1
 func abs(x int) int{
-  if x < 0 {
-    x = -x
-  }
   return (x ^ (x >> m)) - (x >> m)
 }
 
